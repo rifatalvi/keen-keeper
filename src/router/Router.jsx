@@ -3,6 +3,8 @@ import Rootlayout from "../layout/Rootlayout";
 import Homepage from "../pages/homepage/Homepage";
 import FriendDetais from "../pages/frindeDetails/FriendDetais";
 import Timeline from "../pages/timeline/Timeline";
+import Stats from "../pages/Stats/Stats";
+import ErroePage from "../pages/error/ErroePage";
 
 export let router = createBrowserRouter([
   {
@@ -25,9 +27,10 @@ export let router = createBrowserRouter([
       {
 
         path:"/state",
-        element:<p>this is this state</p>
+        element:<Stats></Stats>
       }
-    ]
+    ],
+    errorElement: <ErroePage></ErroePage>
 
   },
 ]);

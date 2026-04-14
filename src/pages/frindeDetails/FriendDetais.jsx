@@ -125,22 +125,22 @@ const FriendDetais = () => {
                 <div className="bg-white p-7 rounded-2xl shadow-sm border border-slate-100">
                     <h4 className="text-[#064E3B] font-bold text-lg mb-6">Quick Check-In</h4>
                     <div className="grid grid-cols-3 gap-4">
-                        <button className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
-                            <div  onClick={hendelCall} className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
+                        <button  onClick={hendelCall} className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
+                            <div  className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
                                 <FiPhone className="text-[#334155]" size={22} />
                             </div>
                             <span className="text-[#64748B] text-sm font-bold uppercase tracking-wide">Call</span>
                         </button>
 
-                        <button className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
-                            <div onClick={hendelText} className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
+                        <button onClick={hendelText} className=" group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
+                            <div  className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
                                 <IoChatbubbleOutline className="text-[#334155]" size={22} />
                             </div>
                             <span  className="text-[#64748B] text-sm font-bold uppercase tracking-wide">Text</span>
                         </button>
 
-                        <button className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
-                            <div onClick={hendelVideoCall} className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
+                        <button onClick={hendelVideoCall} className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
+                            <div className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
                                 <FiVideo className="text-[#334155]" size={22} />
                             </div>
                             <span  className="text-[#64748B] text-sm font-bold uppercase tracking-wide">Video</span>
