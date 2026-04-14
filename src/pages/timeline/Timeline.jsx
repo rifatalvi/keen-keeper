@@ -12,7 +12,11 @@ import { SlArrowDown } from 'react-icons/sl';
 
 const Timeline = () => {
     const { text, call, videoCall } = useContext(FriendsContext);
-
+const today = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
         const [filter, setFilter] = useState("all");
     const TimelineItem = ({ type, person, date, imgSrc }) => (
         <div className="flex items-center p-4 border border-gray-100 rounded-lg mb-3 bg-white shadow-sm">
@@ -79,7 +83,7 @@ const Timeline = () => {
                                 key={`text-${index}`}
                                 type="Text"
                                 person={item.name}
-                                date={item.next_due_date}
+                                date={today}
                                 imgSrc={textIcon}
                             />
                         ))}
@@ -90,7 +94,7 @@ const Timeline = () => {
                                 key={`call-${index}`}
                                 type="Call"
                                 person={item.name}
-                                date={item.next_due_date}
+                                date={today}
                                 imgSrc={callIcon}
                             />
                         ))}
@@ -101,7 +105,7 @@ const Timeline = () => {
                                 key={`video-${index}`}
                                 type="Video"
                                 person={item.name}
-                                date={item.next_due_date}
+                                date={today}
                                 imgSrc={videoIcon}
                             />
                         ))}
