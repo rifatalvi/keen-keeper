@@ -1,16 +1,51 @@
-# React + Vite
+# 📝 Keen Keeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Keen Keeper** is a high-performance activity tracking dashboard built for seamless data management and visualization. It features a fully dynamic interface that allows users to monitor communication logs, analyze data through interactive charts, and enjoy a smooth, animated user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔗 Project Links
+- **Live Demo:** [Keen Keeper Live](https://keen-keeper-alpha-olive.vercel.app/)
+- **Repository:** [GitHub Link](https://github.com/rifatalvi/keen-keeper)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📸 Preview
+![Project Dashboard](https://via.placeholder.com/800x400?text=App+Dashboard+Screenshot)
+*Main Dashboard Interface showing the dynamic layout and real-time data.*
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+* **Comprehensive Call History:** A dedicated system to track and display detailed communication logs.
+* **Smart Search & Multi-Criteria Sorting:** Easily filter through logs using the search bar and sort data specifically by **Call**, **Text**, or **Video Call** types.
+* **Interactive Data Insights:** Integrated **Recharts** to visualize activity patterns through dynamic, easy-to-read charts.
+* **Premium UX with Smooth Animations:** * Professional **React Spinners** on every page transition.
+    * Polished UI animations for a modern feel.
+    * Fully responsive design across all sections using **Tailwind CSS**.
+
+---
+
+## 🛠️ Technologies Used
+
+* **Core Library:** React.js
+* **Routing:** React Router DOM (Dynamic Routing)
+* **Styling:** Tailwind CSS (Custom designs for every section)
+* **Data Visualization:** Recharts
+* **UI Components:** React Icons, React Spinners
+* **Deployment:** Vercel
+
+---
+
+## 📊 Analytics View
+![Data Analytics](https://via.placeholder.com/800x300?text=Recharts+Analytics+Preview)
+*Dynamic charts representing user activity and communication stats.*
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/rifatalvi/keen-keeper.git](https://github.com/rifatalvi/keen-keeper.git)
