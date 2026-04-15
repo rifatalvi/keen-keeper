@@ -52,7 +52,7 @@ const FriendDetais = () => {
         }
         
         
-        const { name, picture, status, tags, days_since_contact, goal_days, next_due_date, bio,email } = expectedFriend;
+        const { name, picture, status, tags, days_since_contact, goal, next_due_date, bio,email } = expectedFriend;
         
         console.log(text,
             call,
@@ -112,7 +112,7 @@ const FriendDetais = () => {
                         <p className="text-[#94A3B8] text-xs font-semibold uppercase tracking-wider mt-2 line-clamp-2">Days Since Contact</p>
                     </div>
                     <div className="bg-white p-3 lg:p-7 rounded-2xl shadow-sm border border-slate-100 text-center">
-                        <h3 className="text-2xl lg:text-4xl font-bold text-[#064E3B]">{goal_days || 30}</h3>
+                        <h3 className="text-2xl lg:text-4xl font-bold text-[#064E3B]">{goal}</h3>
                         <p className="text-[#94A3B8] text-xs font-semibold uppercase tracking-wider mt-2">Goal (Days)</p>
                     </div>
                     <div className="bg-white p-3 lg:p-7 rounded-2xl shadow-sm border border-slate-100 text-center">
@@ -128,7 +128,7 @@ const FriendDetais = () => {
                             Edit
                         </button>
                     </div>
-                    <p className="text-[#475569] text-base">Connect every <span className="font-extrabold text-[#1E293B]">{goal_days || 30} days</span></p>
+                    <p className="text-[#475569] text-base">Connect every <span className="font-extrabold text-[#1E293B]">{goal} days</span></p>
                 </div>
 
                 <div className="bg-white p-3 lg:p-7 rounded-2xl shadow-sm border border-slate-100">
