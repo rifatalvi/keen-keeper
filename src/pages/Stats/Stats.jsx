@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FriendsContext } from '../../context/FriendsContext';
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
+import { Link } from 'react-router';
 
 const Stats = () => {
   const { text, call, videoCall } = useContext(FriendsContext);
@@ -13,17 +14,33 @@ const Stats = () => {
 
   return (
     <div className="p-10  bg-[#F4F7F9] flex justify-center min-h-screen ">
-     <div className='w-full flex flex-col items-center '>
+     <div className='w-full  flex flex-col items-center '>
         
-      <h2 className="text-3xl font-bold text-[#1F2937] mb-6">Friendship Analytics</h2>
+      <h2 className="text-3xl  font-bold text-[#1F2937] mb-6">Friendship Analytics</h2>
 
       
       <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 max-w-6xl w-full">
         <h3 className="text-[#244D3F] font-semibold text-lg mb-4">By Interaction Type</h3>
 
         <div className="flex flex-col items-center justify-center h-[350px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
+            {
+                text.length === 0 && call.length === 0 && videoCall.length === 0 ? <div>
+                    <div className="relative flex flex-col items-center justify-center">
+             
+              <div className="w-48 h-48 rounded-full border-[16px] border-gray-100 flex items-center justify-center">
+                <span className="text-gray-400 font-medium">No Data</span>
+              </div>
+              
+              <Link to={'/'} className="mt-8 text-center">
+                <p className="text-gray-500">We couldn't find any interaction history.</p>
+                <button className="mt-4 text-sm text-blue-600 hover:underline font-medium">
+                  + Add your first interaction
+                </button>
+              </Link>
+            </div>
+                </div> :
+                    <ResponsiveContainer width="100%" height="100%">
+                        <PieChart>
               <Pie
                 data={data}
                 innerRadius="65%" 
@@ -50,6 +67,7 @@ const Stats = () => {
                 />
             </PieChart>
           </ResponsiveContainer>
+            }
         </div>
       </div>
                 </div> 

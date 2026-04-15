@@ -12,12 +12,12 @@ import { SlArrowDown } from 'react-icons/sl';
 
 const Timeline = () => {
     const { text, call, videoCall } = useContext(FriendsContext);
-const today = new Date().toLocaleDateString('en-US', {
+    const today = new Date().toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
     });
-        const [filter, setFilter] = useState("all");
+    const [filter, setFilter] = useState("all");
     const TimelineItem = ({ type, person, date, imgSrc }) => (
         <div className="flex items-center p-4 border border-gray-100 rounded-lg mb-3 bg-white shadow-sm">
             <div className="mr-4">
@@ -36,16 +36,35 @@ const today = new Date().toLocaleDateString('en-US', {
 
 
     return (
-        <div className='max-w-2xl mx-auto my-8 p-6 bg-white'>
+        <div className='max-w-6xl mx-auto my-8 p-6 bg-white'>
             <h1 className="text-3xl font-bold mb-6 text-[#1a2b3c]">Timeline</h1>
-            <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn m-1 mb-5 items-center gap-7">Filter: {filter.charAt(0).toUpperCase() + filter.slice(1)} <SlArrowDown /></div>
-                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li onClick={() => setFilter('all')}><a>All</a></li>
-                    <li onClick={() => setFilter('call')}><a>Call</a></li>
-                    <li onClick={() => setFilter('text')}><a>Text</a></li>
-                    <li onClick={() => setFilter('video')}><a>Video</a></li>
-                </ul>
+            <div className='flex mb-2  flex-col md:flex-row lg:flex-row justify-between '>
+
+                <div className="dropdown items-center">
+                    <div tabIndex={0} role="button" className="btn m-1 mb-5 items-center gap-7">Filter: {filter.charAt(0).toUpperCase() + filter.slice(1)} <SlArrowDown />
+                    </div>
+                    <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <li onClick={() => setFilter('all')}><a>All</a></li>
+                        <li onClick={() => setFilter('call')}><a>Call</a></li>
+                        <li onClick={() => setFilter('text')}><a>Text</a></li>
+                        <li onClick={() => setFilter('video')}><a>Video</a></li>
+                    </ul>
+                </div>
+                <label className="input">
+                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g
+                            strokeLinejoin="round"
+                            strokeLinecap="round"
+                            strokeWidth="2.5"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input type="search" required placeholder="Search" />
+                </label>
             </div>
             {
                 call.length === 0 && text.length === 0 && videoCall.length === 0 ? <div className="flex flex-col items-center justify-center py-20 px-4 bg-white border border-gray-200 rounded-xl shadow-sm">
@@ -78,7 +97,7 @@ const today = new Date().toLocaleDateString('en-US', {
 
                     <div className="space-y-2">
 
-                        {(filter==='all' || filter==='text')&&text?.map((item, index) => (
+                        {(filter === 'all' || filter === 'text') && text?.map((item, index) => (
                             <TimelineItem
                                 key={`text-${index}`}
                                 type="Text"
@@ -89,7 +108,7 @@ const today = new Date().toLocaleDateString('en-US', {
                         ))}
 
 
-                        {(filter==='all' || filter=== 'call')&&call?.map((item, index) => (
+                        {(filter === 'all' || filter === 'call') && call?.map((item, index) => (
                             <TimelineItem
                                 key={`call-${index}`}
                                 type="Call"
