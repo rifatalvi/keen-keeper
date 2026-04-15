@@ -16,7 +16,15 @@ const FriendDetais = () => {
         setCall,
         setText,
         setVideoCall} =useContext(FriendsContext)
-        
+        const formatDate = (dateString) => {
+        if (!dateString) return 'TBD';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+        });
+    };
         const expectedFriend = friends.find((friend) => String(friend.id) === friendID);
         
         const hendelText =()=>{
@@ -44,7 +52,7 @@ const FriendDetais = () => {
         }
         
         
-        const { name, picture, status, tags, days_since_contact, goal_days, next_due, bio,email } = expectedFriend;
+        const { name, picture, status, tags, days_since_contact, goal_days, next_due_date, bio,email } = expectedFriend;
         
         console.log(text,
             call,
@@ -108,12 +116,12 @@ const FriendDetais = () => {
                         <p className="text-[#94A3B8] text-xs font-semibold uppercase tracking-wider mt-2">Goal (Days)</p>
                     </div>
                     <div className="bg-white p-3 lg:p-7 rounded-2xl shadow-sm border border-slate-100 text-center">
-                        <h3 className="text-xl font-bold text-[#334155] mt-2">{next_due || 'TBD'}</h3>
+                        <h3 className="text-xl md:text-sm lg:text-3xl font-bold text-[#334155] mt-2">{formatDate(next_due_date)}</h3>
                         <p className="text-[#94A3B8] text-xs font-semibold uppercase tracking-wider mt-2">Next Due</p>
                     </div>
                 </div>
 
-                <div className="bg-white p-7 rounded-2xl shadow-sm border border-slate-100">
+                <div className="bg-white p-7  md:p-4 lg:p-7 rounded-2xl shadow-sm border border-slate-100">
                     <div className="flex justify-between items-center mb-4">
                         <h4 className="text-[#064E3B] font-bold text-lg">Relationship Goal</h4>
                         <button className="bg-[#F8FAFC] px-3 py-1.5 rounded-lg text-[10px] font-bold text-[#64748B] border border-slate-200 uppercase tracking-tighter hover:bg-slate-100 transition-colors">
@@ -123,24 +131,24 @@ const FriendDetais = () => {
                     <p className="text-[#475569] text-base">Connect every <span className="font-extrabold text-[#1E293B]">{goal_days || 30} days</span></p>
                 </div>
 
-                <div className="bg-white p-7 rounded-2xl shadow-sm border border-slate-100">
+                <div className="bg-white p-3 lg:p-7 rounded-2xl shadow-sm border border-slate-100">
                     <h4 className="text-[#064E3B] font-bold text-lg mb-6">Quick Check-In</h4>
-                    <div className="grid grid-cols-3 gap-4">
-                        <button  onClick={hendelCall} className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
+                    <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-4">
+                        <button  onClick={hendelCall} className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-4 lg:p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
                             <div  className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
                                 <FiPhone className="text-[#334155]" size={22} />
                             </div>
                             <span className="text-[#64748B] text-sm font-bold uppercase tracking-wide">Call</span>
                         </button>
 
-                        <button onClick={hendelText} className=" group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
+                        <button onClick={hendelText} className=" group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-4 lg:p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
                             <div  className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
                                 <IoChatbubbleOutline className="text-[#334155]" size={22} />
                             </div>
                             <span  className="text-[#64748B] text-sm font-bold uppercase tracking-wide">Text</span>
                         </button>
 
-                        <button onClick={hendelVideoCall} className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
+                        <button onClick={hendelVideoCall} className="group flex flex-col items-center justify-center gap-3 bg-[#F8FAFC] p-4 lg:p-8 rounded-2xl border border-transparent hover:border-slate-200 hover:bg-white transition-all duration-300">
                             <div className="p-3 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
                                 <FiVideo className="text-[#334155]" size={22} />
                             </div>
