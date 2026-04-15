@@ -6,20 +6,24 @@ import callIcon from '../../assets/image/call.png';
 import videoIcon from '../../assets/image/video.png';
 import { SlArrowDown } from 'react-icons/sl';
 import TimelineItem from '../../componet/ui/TimelineItem';
+import useFriends from '../../hooks/useFriends';
+import { MoonLoader } from 'react-spinners';
 
 const Timeline = () => {
     const { text, call, videoCall } = useContext(FriendsContext);
     const [filter, setFilter] = useState("all");
     const [searchTerm, setSearchTerm] = useState("");
-
+      const { loading } = useFriends();
     const today = new Date().toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
     });
-
+ 
    
-    
+    if (loading) {
+            return <div className="min-h-screen flex justify-center items-center"><MoonLoader /></div>;
+        }
 
    
     const filteredTexts = text?.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())) || [];
@@ -36,7 +40,7 @@ const Timeline = () => {
             <div className='flex mb-6 flex-col md:flex-row gap-4 justify-between items-center'>
                 
                 <div className="dropdown w-full md:w-auto">
-                    <div tabIndex={0} role="button" className="btn flex justify-between gap-7 w-full md:w-auto">
+                    <div tabIndex={0} role="button" className="btn flex justify-between gap-7 lg:gap-15 w-full md:w-auto">
                         Filter: {filter.charAt(0).toUpperCase() + filter.slice(1)} <SlArrowDown size={12} />
                     </div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow-lg border border-gray-100">

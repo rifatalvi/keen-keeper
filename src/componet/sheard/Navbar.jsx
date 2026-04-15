@@ -2,8 +2,8 @@ import React from 'react';
 import { IoTimeOutline } from 'react-icons/io5';
 import { RiHome2Line } from 'react-icons/ri';
 import { TfiStatsUp } from 'react-icons/tfi';
-import { NavLink } from 'react-router';
-
+import { Link, NavLink } from 'react-router';
+import logo from '../../assets/image/logo.png';
 const Navbar = () => {
     const items = <>
       <li><NavLink to={'/'} className={({isActive})=> ` ${isActive? "bg-[#244D3F] text-white":"text-gray-500"}`}><RiHome2Line /> Home</NavLink></li>
@@ -12,7 +12,7 @@ const Navbar = () => {
         
     </>
     return (
-        <div className=" bg-base-100 shadow-sm">
+        <div className=" bg-base-100 shadow-sm sticky top-0 z-50">
  <div className='container mx-auto navbar justify-between'>
      <div className="navbar-start">
     <div className="dropdown">
@@ -25,7 +25,7 @@ const Navbar = () => {
        {items}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl font-bold">Keen<span className="text-[#244D3F]">Keeper</span></a>
+    <Link to={'/'} className="btn btn-ghost text-xl font-bold"> <img src={logo} alt="" /></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 gap-2">

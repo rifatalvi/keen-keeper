@@ -1,10 +1,14 @@
 import React from 'react';
 import useFriends from '../../hooks/useFriends';
 import FriendCard from '../ui/FriendCard';
+import { MoonLoader } from 'react-spinners';
 
 const Allfriends = () => {
     const{friends,loading} = useFriends()
-    console.log(friends,loading)
+    
+    if (loading) {
+            return <div className="min-h-screen flex justify-center items-center"><MoonLoader /></div>;
+        }
     return (
         <div className='container mx-auto w-[90%] my-8'>
             <h2 className='font-bold text-2xl my-5'>Your Friends</h2>

@@ -5,6 +5,7 @@ import { FiPhone, FiVideo, FiArchive } from 'react-icons/fi';
 import { IoChatbubbleOutline, IoNotificationsOffOutline, IoTrashOutline } from 'react-icons/io5';
 import { FriendsContext } from '../../context/FriendsContext';
 import { toast } from 'react-toastify';
+import { MoonLoader } from 'react-spinners';
 
 const FriendDetais = () => {
     const { friendID } = useParams();
@@ -20,21 +21,21 @@ const FriendDetais = () => {
         
         const hendelText =()=>{
             setText([...text,expectedFriend])
-            toast.success(`Sent to ${expectedFriend.name}`)
+            toast.success(`Text with ${expectedFriend.name}`)
             
         }
         const hendelCall =()=>{
             setCall([...call,expectedFriend])
-            toast.success(`Sent to ${expectedFriend.name}`)
+            toast.success(`Call with ${expectedFriend.name}`)
             
         }
         const hendelVideoCall =()=>{
             setVideoCall([...videoCall,expectedFriend])
-            toast.success(`Sent to ${expectedFriend.name}`)
+            toast.success(`Video Call with ${expectedFriend.name}`)
             
         }
         if (loading) {
-            return <div className="min-h-screen flex justify-center items-center">Loading...</div>;
+            return <div className="min-h-screen flex justify-center items-center"><MoonLoader /></div>;
         }
         
         
@@ -43,7 +44,7 @@ const FriendDetais = () => {
         }
         
         
-        const { name, picture, status, tags, days_since_contact, goal_days, next_due, bio, preferred_contact } = expectedFriend;
+        const { name, picture, status, tags, days_since_contact, goal_days, next_due, bio,email } = expectedFriend;
         
         console.log(text,
             call,
@@ -78,7 +79,7 @@ const FriendDetais = () => {
                     </div>
 
                     <p className="mt-6 text-[#94A3B8] italic text-sm leading-relaxed">"{bio || "No bio available"}"</p>
-                    <p className="text-[#94A3B8] text-xs mt-1 ">Preferred: {preferred_contact || 'email'}</p>
+                    <p className="text-[#94A3B8] text-xs mt-1 ">Preferred: {email}</p>
                 </div>
 
                 <div className="flex flex-col gap-2">

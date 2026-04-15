@@ -2,10 +2,15 @@ import React, { useContext } from 'react';
 import { FriendsContext } from '../../context/FriendsContext';
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
 import { Link } from 'react-router';
+import useFriends from '../../hooks/useFriends';
+import { MoonLoader } from 'react-spinners';
 
 const Stats = () => {
   const { text, call, videoCall } = useContext(FriendsContext);
-
+  const {  loading } = useFriends();
+  if (loading) {
+            return <div className="min-h-screen flex justify-center items-center"><MoonLoader /></div>;
+        }
   const data = [
     { name: "Call", value: call.length, fill: "#244D3F" },
     { name: "Text", value: text.length, fill: "#7E35E1" },
