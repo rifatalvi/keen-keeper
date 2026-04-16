@@ -11,10 +11,9 @@
 ---
 
 ## 📸 Preview
-![Project Dashboard](https://via.placeholder.com/800x400?text=App+Dashboard+Screenshot)
+![Project Dashboard]
 *Main Dashboard Interface showing the dynamic layout and real-time data.*
 
----
 
 ## ✨ Key Features
 
@@ -36,11 +35,8 @@
 * **UI Components:** React Icons, React Spinners
 * **Deployment:** Vercel
 
----
 
-## 📊 Analytics View
-![Data Analytics](https://via.placeholder.com/800x300?text=Recharts+Analytics+Preview)
-*Dynamic charts representing user activity and communication stats.*
+
 
 ---
 
